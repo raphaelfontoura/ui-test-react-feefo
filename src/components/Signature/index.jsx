@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
+import { iconColor, textLightColor, textStrongColor } from '../UI/colors'
 
 const ContactData = styled.div`
 display: flex;
@@ -19,7 +19,7 @@ flex-direction: column;
 const SignData = styled.div`
   display: flex;
   justify-content: space-between;
-  color: #9F9C9C;
+  color: ${textLightColor};
   span {
     margin-right: 1em;
   }
@@ -29,7 +29,7 @@ const NameSign = styled.h4`
   text-align: start;
   text-transform: capitalize;
   margin-bottom: 0.3em;
-  color: #524F51;
+  color: ${textStrongColor};
 `;
 
 const PersonalIcon = styled.div`
@@ -38,9 +38,9 @@ const PersonalIcon = styled.div`
   height: 3em;
   font-size: 1em;
   font-weight: 700;
-  background-color: #F9CF02;
+  background-color: ${iconColor};
   text-transform: capitalize;
-  color: #524F51;
+  color: ${textStrongColor};
   align-items: center;
   justify-content: center;
   border: none;
@@ -48,16 +48,16 @@ const PersonalIcon = styled.div`
   margin-right: 1em;
 `;
 
-const Signature = () => {
-
+const Signature = ({data}) => {
+  
   return (
     <ContactData>
-      <PersonalIcon>S</PersonalIcon>
+      <PersonalIcon>{data.name[0]}</PersonalIcon>
       <ContactSignature>
-        <NameSign>Support</NameSign>
+        <NameSign>{data.name}</NameSign>
         <SignData>
           <span>
-            <FontAwesomeIcon icon={faEnvelope} /> support@feefo.com
+            <FontAwesomeIcon icon={faEnvelope} /> {data.email}
           </span>
           <span>020 3362 4208</span>
         </SignData>

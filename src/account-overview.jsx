@@ -1,10 +1,13 @@
+import './account-overview.css';
+
 import React from 'react';
 import styled from 'styled-components';
 
-import './account-overview.css';
 import Card from './components/Card';
 import { GlobalStyle } from './components/GlobalStyle';
 import Header from './components/Header';
+import { backColor } from './components/UI/colors';
+
 
 const Container = styled.div`
   display: flex;
@@ -12,19 +15,19 @@ const Container = styled.div`
   justify-content: center;
   align-items: flex-start;
   padding: 2.5em;
-  width: 800px;
-  background-color: #F4F4F4;
+  width: 820px;
+  background-color: ${backColor};
 `;
 
 export const AccountOverview = ({ data }) => {
-  console.log(data);
+  // console.log(data);
 
   return (
     <>
       <GlobalStyle />
       <Container>
-        <Header />
-        <Card />
+        <Header contact={data.supportContact} />
+        <Card sales={data.salesOverview} />
       </Container>
     </>
   )

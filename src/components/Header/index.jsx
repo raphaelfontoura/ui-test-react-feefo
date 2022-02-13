@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Signature from "../Signature";
+import { textLightColor, textStrongColor } from "../UI/colors";
 
 
 const Container = styled.div`
@@ -13,7 +14,7 @@ const Container = styled.div`
 const Title = styled.h2`
   font-size: 2em; 
   font-weight: 400;
-  color:  #524F51;
+  color: ${textStrongColor};
 `;
 
 const ContactCard = styled.div`
@@ -26,17 +27,18 @@ const ContactCardTitle = styled.h3`
   font-size: 1em;
   text-align: start;
   margin-bottom: 0.5em;
-  color: #9F9C9C;
+  color: ${textLightColor};
   text-transform: uppercase;
 `;
 
-const Header = () => {
+const Header = ({contact}) => {
+  
   return (
     <Container>
       <Title>Account Overview</Title>
       <ContactCard>
         <ContactCardTitle>Your Feefo Support Contact</ContactCardTitle>
-        <Signature />
+        <Signature data={contact} />
       </ContactCard>
     </Container>
   )
